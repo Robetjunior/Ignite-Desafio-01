@@ -16,14 +16,15 @@ export function TaskList() {
 
   function handleCreateNewTask() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
-    const newItem = [...tasks]
-    newItem.push( {
-      id: Date.now(),
-      title: newTaskTitle,
-      isComplete: false
-    })
-    setTasks([...newItem])
-    console.log(newItem)
+    if ( newTaskTitle !== '' ){
+      const newItem = [...tasks]
+      newItem.push( {
+        id: Date.now(),
+        title: newTaskTitle,
+        isComplete: false,
+      })
+      setTasks([...newItem]);
+    }
   }
 
   function handleToggleTaskCompletion(id: number) {
